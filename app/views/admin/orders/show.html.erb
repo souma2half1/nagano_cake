@@ -1,0 +1,79 @@
+<div class = "container">
+<div class = "row">
+<div class = "col-md-12">
+
+<h>注文履歴詳細</h>
+
+<table>
+ <thead>
+  <tr>
+    <th></th>
+  </tr>     
+ </thead>    
+</table>
+
+<tbody>
+ <tr>
+  <td>購入者</td>
+  <td><%= oreder.name %></td>
+ </tr>
+ <tr>
+  <td>注文日</td>
+  <td><%= order.created_at %></td>
+ </tr>
+ <tr>
+  <td>配送先</td>
+  <td><%= order.address %></td>
+ </tr>
+ <tr>
+  <td>支払方法</td>
+  <td><%= order.payment %></td>
+ </tr>
+</tbody>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価（税込）</th>
+      <th>数量</th>
+      <th>小計</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% total_price = 0 %>
+    <% @cart_items.each do |cart_item| %>
+    <tr>
+      <td><%= cart_item.item.name %></td>
+      <td><%= cart_item.item.price %></td>
+      <td><%= cart_item.amount %></td>
+      <td><%= cart_item.item.price * cart_item.amount %></td>
+    </tr>
+    <% total_price += cart_item.item.price * cart_item.amount %>
+    <% end %>
+  </tbody>
+</table>
+  
+  <table>
+    <tbody>
+     <tr>      
+     <td>商品合計</td>
+      <td><%= total_price %></td>
+     </tr>
+     <tr>
+       <td>送料</td>
+      <td>800</td>
+
+     </tr>
+     <tr>
+      <td>請求金額</td>
+      <td><%= total_price + 800 %></td>
+     </tr>
+    </tbody>
+  </table>
+  
+  </div>
+  </div>
+  </div>

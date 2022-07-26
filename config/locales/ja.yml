@@ -1,14 +1,7 @@
-  ja:
-    enums:
-      order:
-        genre_status:
-          sale: "販売中"
-          stop: "販売停止中"
-          
-    ja:
-    enums:
-      order:
-        is_deleted:
-          effective: "有効"
-          withdraw: "退会"
-          
+ja:
+  enums:
+    order:
+      payment:
+        credit_card: "クレジットカード"
+        transfer: "銀行振込"
+

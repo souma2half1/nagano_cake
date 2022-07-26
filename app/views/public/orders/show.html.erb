@@ -1,0 +1,76 @@
+<h3>注文履歴詳細</h3>
+
+<table>
+ <tbody>
+    <tr>
+     <td>注文日</td>
+     <td><%= order.created_at %></td>
+    </tr>
+    <tr>
+     <td>配送先</td>
+     <td><%= order.address %></td>
+    </tr>
+    <tr>
+     <td>注文商品</td>
+     <td><%= order.item %></td>
+    </tr>
+    <tr>
+     <td>支払金額</td>
+     <td><%= %></td>
+    </tr>
+    <tr>
+     <td>注文詳細</td>
+     <td><%= link_to'表示する',order_path(order.id) %></td>
+    </tr>
+ </tbody>
+</table>
+
+<h3>請求情報</h3>
+<table>
+ <tbody>
+    <tr>
+     <td>商品合計</td>
+     <td><%=  %></td>
+    </tr>
+    <tr>
+     <td>配送料</td>
+     <td>800</td>
+    </tr>
+    <tr>
+     <td>ご請求額</td>
+     <td></td>
+    </tr>
+ </tbody>
+</table>
+
+<div class = "container">
+<div class = "row">
+<div class = "col-md-12">
+
+<h3>注文内容</h3>
+
+ <thead>
+    <tr>
+     <th>商品</th>
+     <th>単価（税込）</th>
+     <th>個数</th>
+     <th>小計</th>
+    </tr>
+ </thead>
+
+<% @order.each do |order| %>
+<table>
+ <tbody>
+    <tr>
+     <td><%= order.item %></td>
+     <td><%= order.price %></td>
+     <td><%= order.amount %></td>
+     <td><%= order.price * order.amount </td>
+    </tr>
+  </tbody>
+ </table>
+ <% end %>
+ 
+ </div>
+ </div>
+ </div>

@@ -1,0 +1,23 @@
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+
+<h3>商品一覧（全件）</h3>
+
+<div>
+<% @items.each do |item| %>
+
+<%= image_tag item.image, size: "200x200" %>
+
+<%= item.name %>
+
+￥<%= item.price %>
+
+<% end %>
+
+<%= paginate @items %>
+</div>
+
+</div>
+</div>
+</div>
