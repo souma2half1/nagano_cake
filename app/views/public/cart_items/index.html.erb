@@ -21,8 +21,8 @@
   
  <%  @sum = 0 %>
   
-  <% @cart_items.each do |cart_item| %>
   
+  <% @cart_items.each do |cart_item| %>
   <tbody>
     <tr>
       <td><%= cart_item.item.name %></td>
@@ -38,10 +38,11 @@
       <th><%= link_to'削除する', cart_item_path(cart_item.id), method: :delete ,class:"btn btn-sm btn-danger" %> </th>
     </tr>
 
-  </tbody>
+  </tbody> 
+  <% end %>
   </table>
   
-  <% end %>
+ 
   
   <%= link_to'買い物を続ける',root_path ,class:"btn btn-sm btn-primary ml-auto" %>
   

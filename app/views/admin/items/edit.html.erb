@@ -3,7 +3,7 @@
 <div class = "col-md-12">
     
 <h>商品編集</h>
- <%= form_with model:@item,url: admin_item_path,method: :patch do |f| %>
+ <%= form_with model: @item,url: admin_item_path(@item.id),method: :patch do |f| %>
 
 <div class = "row">
  <div class = "col-md-8">
