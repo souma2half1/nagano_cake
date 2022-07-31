@@ -11,7 +11,7 @@ class Public::CustomersController < ApplicationController
  def update
   @customer = current_customer
   @customer.update(customer_params)
-  redirect_to customer_path(@customer.id)
+  redirect_to my_page_path
  end
  
  def unsubscribe
@@ -22,7 +22,14 @@ class Public::CustomersController < ApplicationController
   @customer = current_customer
   @customer.update(is_deleted:true)
   reset_session
-  redirect_to root_path
+  redirect_to root_path,notice: '本当に退会しますか？'
  end
+ 
+ private
+ 
+  def customer_params
+    params.require(:customer).permit(:last_name,:last_name,:first_name_kana,:last_name_kana,:postal_code,:address,:telephone_number,:email)
+  end
+ 
  
 end

@@ -11,12 +11,12 @@ class Admin::ItemsController < ApplicationController
  def create
   @item = Item.new(item_params)
   @item.save
-  redirect_to admin_items_path
+  redirect_to admin_items_path(params[:id])
  end
  
  def show
   @item = Item.find(params[:id])
-  @genre = Genre.find(params[:id])
+  @genre = @item.genre
  end 
   
  def edit

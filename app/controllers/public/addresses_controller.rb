@@ -2,7 +2,7 @@ class Public::AddressesController < ApplicationController
 
  def index
   @address = Address.new
-  @addresses = Address.all
+  @addresses = current_customer.addresses.all
  end
  
  def create
@@ -24,8 +24,8 @@ class Public::AddressesController < ApplicationController
  
  def destroy
   address = Address.find(params[:id])
-  address.delete
-  redirect_to addresses_params
+  address.delete 
+  redirect_to addresses_path
  end
  
  

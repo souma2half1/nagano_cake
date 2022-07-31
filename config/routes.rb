@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   
   
-  
   root 'public/homes#top'
-  get "homes/about" => "homes#about", as: "about"
+  
   
 
 # 顧客用
@@ -14,7 +13,8 @@ devise_for :customers,skip: [:passwords], controllers: {
 }
 
 scope module: :public do
-
+  
+  get 'homes/about' => 'homes#about', as: "about"
   resources :items, only: [:create,:index,:show,:update,:edit,:new]
   
   resources :cart_items,only: [:index,:update,:destroy,:create]
@@ -28,9 +28,9 @@ scope module: :public do
   get 'customers/unsubscribe'=> 'customers#unsubscribe',as: "unsubscribe"
   patch 'customers/withdraw',as: "withdraw"
   
-
+get'orders/complete'=>'orders#complete',as: "complete"
   resources :orders, only: [:index,:show,:create,:new]
-  get'orders/complete'=>'orders#complete',as: "complite"
+  
   post'orders/confilm'=>'orders#confilm',as: "confilm"
   
   resources :order_details, only: [:update]
@@ -46,7 +46,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 
     namespace :admin do
-      get 'admin' => 'admin/homes#top'
+      get 'admin' => 'homes#top'
       get  'about' =>'homes#about'
       
       resources :items, only: [:index, :show,:new,:create,:edit,:update]

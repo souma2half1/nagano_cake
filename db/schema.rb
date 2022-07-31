@@ -110,7 +110,6 @@ ActiveRecord::Schema.define(version: 2022_06_30_114429) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "order_id", null: false
     t.integer "item_id", null: false
-    t.integer "is_active", null: false
     t.integer "price", null: false
     t.integer "quantity", null: false
   end
